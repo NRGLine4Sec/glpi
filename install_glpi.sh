@@ -1,6 +1,6 @@
 #!/bin/bash
 glpi_version="9.1.2"
-apt-get install -y apache2 php7.0 libapache2-mod-php php7.0-mysql php7.0-imap php7.0-ldap php7.0-mbstring php7.0-gd php7.0-curl mysql-server mysql-client ntp
+apt-get install -y apache2 php7.0 libapache2-mod-php7.0 php7.0-mysql php7.0-imap php7.0-ldap php7.0-mbstring php7.0-gd php7.0-cli php7.0-apcu php7.0-xmlrpc php7.0-xml php7.0-curl mariadb-server mariadb-client ntp
 cd /var/www/html
 wget --no-check-certificate https://github.com/glpi-project/glpi/releases/download/$glpi_version/glpi-$glpi_version.tgz
 tar xvf glpi-$glpi_version.tgz
