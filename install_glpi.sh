@@ -1,8 +1,10 @@
 #!/bin/bash
+echo "Installation de nfsen en cour, veuillez patientez"
 glpi_version="9.3.2"
-apt-get install -y apache2 php7.0 libapache2-mod-php7.0 php7.0-mysql php7.0-imap php7.0-ldap php7.0-mbstring php7.0-gd php7.0-cli php7.0-apcu php7.0-xmlrpc php7.0-xml php7.0-curl mariadb-server mariadb-client ntp
+apt-get update -qq && apt-get upgrade -y -qq
+apt-get install apache2 php7.0 libapache2-mod-php7.0 php7.0-mysql php7.0-imap php7.0-ldap php7.0-mbstring php7.0-gd php7.0-cli php7.0-apcu php7.0-xmlrpc php7.0-xml php7.0-curl mariadb-server mariadb-client php-cas ntp -y -qq
 cd /var/www/html
-wget --no-check-certificate https://github.com/glpi-project/glpi/releases/download/$glpi_version/glpi-$glpi_version.tgz
+wget --no-check-certificate -qq https://github.com/glpi-project/glpi/releases/download/$glpi_version/glpi-$glpi_version.tgz
 tar xvf glpi-$glpi_version.tgz
 chown -R www-data:www-data /var/www/html/glpi/
 chmod -R 777 /var/www/html/glpi/
@@ -31,7 +33,7 @@ echo "GRANT ALL PRIVILEGES ON $dbname.* TO '$dbuser'@'localhost';" | mysql -u ro
 echo "FLUSH PRIVILEGES;" | mysql -u root -p$rootpass
 echo "New MySQL database is successfully created"
 
-wget --no-check-certificate https://github.com/fusioninventory/fusioninventory-for-glpi/releases/download/glpi9.3%2B1.3/fusioninventory-9.3+1.3.tar.bz2
+wget --no-check-certificate -qq https://github.com/fusioninventory/fusioninventory-for-glpi/releases/download/glpi9.3%2B1.3/fusioninventory-9.3+1.3.tar.bz2
 tar xjvf fusioninventory-9.3+1.3.tar.bz2
 mv fusioninventory/ /var/www/html/glpi/plugins/
 
