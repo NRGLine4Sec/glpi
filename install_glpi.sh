@@ -3,7 +3,7 @@ clear
 echo "--------------------------------------------------------------------"
 echo "Installation de GLPI/FusionInventory en cour, veuillez patientez"
 echo "--------------------------------------------------------------------"
-glpi_version="9.3.2"
+glpi_version="9.3.3"
 apt-get update -qq && apt-get upgrade -y -qq
 apt-get install apache2 php7.0 libapache2-mod-php7.0 php7.0-mysql php7.0-imap php7.0-ldap php7.0-mbstring php7.0-gd php7.0-cli php7.0-apcu php7.0-xmlrpc php7.0-xml php7.0-curl mariadb-server mariadb-client php-cas ntp -y -qq
 cd /var/www/html
