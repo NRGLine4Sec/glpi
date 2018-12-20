@@ -1,5 +1,5 @@
 #!/bin/bash
-glpi_version="9.1.2"
+glpi_version="9.3.2"
 apt-get install -y apache2 php7.0 libapache2-mod-php7.0 php7.0-mysql php7.0-imap php7.0-ldap php7.0-mbstring php7.0-gd php7.0-cli php7.0-apcu php7.0-xmlrpc php7.0-xml php7.0-curl mariadb-server mariadb-client ntp
 cd /var/www/html
 wget --no-check-certificate https://github.com/glpi-project/glpi/releases/download/$glpi_version/glpi-$glpi_version.tgz
@@ -31,15 +31,19 @@ echo "GRANT ALL PRIVILEGES ON $dbname.* TO '$dbuser'@'localhost';" | mysql -u ro
 echo "FLUSH PRIVILEGES;" | mysql -u root -p$rootpass
 echo "New MySQL database is successfully created"
 
-wget --no-check-certificate https://forge.glpi-project.org/attachments/download/2179/GLPI-dashboard_plugin-0.8.2.tar.gz
-tar xzf GLPI-dashboard_plugin-0.8.2.tar.gz
-mv dashboard/ /var/www/html/glpi/plugins/
-wget --no-check-certificate https://github.com/pluginsGLPI/ocsinventoryng/releases/download/1.3.3/glpi-ocsinventoryng-1.3.3.tar.gz
-tar xzf glpi-ocsinventoryng-1.3.3.tar.gz
-mv ocsinventoryng/ /var/www/html/glpi/plugins/
-wget --no-check-certificate https://forge.glpi-project.org/attachments/download/1211/glpi-massocsimport-1.6.1.tar.gz
-tar xzf glpi-massocsimport-1.6.1.tar.gz
-mv massocsimport/ /var/www/html/glpi/plugins/
-wget --no-check-certificate https://forge.glpi-project.org/attachments/download/2143/glpi-archires-2.3.tar.gz
-tar xzf glpi-archires-2.3.tar.gz
-mv archires /var/www/html/glpi/plugins/
+wget --no-check-certificate https://github.com/fusioninventory/fusioninventory-for-glpi/releases/download/glpi9.3%2B1.3/fusioninventory-9.3+1.3.tar.bz2
+tar xjvf fusioninventory-9.3+1.3.tar.bz2
+mv fusioninventory/ /var/www/html/glpi/plugins/
+
+# wget --no-check-certificate https://forge.glpi-project.org/attachments/download/2179/GLPI-dashboard_plugin-0.8.2.tar.gz
+# tar xzf GLPI-dashboard_plugin-0.8.2.tar.gz
+# mv dashboard/ /var/www/html/glpi/plugins/
+# wget --no-check-certificate https://github.com/pluginsGLPI/ocsinventoryng/releases/download/1.3.3/glpi-ocsinventoryng-1.3.3.tar.gz
+# tar xzf glpi-ocsinventoryng-1.3.3.tar.gz
+# mv ocsinventoryng/ /var/www/html/glpi/plugins/
+# wget --no-check-certificate https://forge.glpi-project.org/attachments/download/1211/glpi-massocsimport-1.6.1.tar.gz
+# tar xzf glpi-massocsimport-1.6.1.tar.gz
+# mv massocsimport/ /var/www/html/glpi/plugins/
+# wget --no-check-certificate https://forge.glpi-project.org/attachments/download/2143/glpi-archires-2.3.tar.gz
+# tar xzf glpi-archires-2.3.tar.gz
+# mv archires /var/www/html/glpi/plugins/
