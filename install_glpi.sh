@@ -1,4 +1,5 @@
 #!/bin/bash
+clear
 echo "--------------------------------------------------------------------"
 echo "Installation de GLPI/FusionInventory en cour, veuillez patientez"
 echo "--------------------------------------------------------------------"
