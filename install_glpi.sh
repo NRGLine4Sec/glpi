@@ -49,3 +49,6 @@ mv fusioninventory/ /var/www/html/glpi/plugins/
 # wget --no-check-certificate https://forge.glpi-project.org/attachments/download/2143/glpi-archires-2.3.tar.gz
 # tar xzf glpi-archires-2.3.tar.gz
 # mv archires /var/www/html/glpi/plugins/
+
+echo "Installation de GLPI/FusionInventory terminé !"
+echo "lancer firefox localhost pour lancer l'installation WEB de GLPI"
