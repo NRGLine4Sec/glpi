@@ -5,7 +5,7 @@ apt-get update -qq && apt-get upgrade -y -qq
 apt-get install apache2 php7.0 libapache2-mod-php7.0 php7.0-mysql php7.0-imap php7.0-ldap php7.0-mbstring php7.0-gd php7.0-cli php7.0-apcu php7.0-xmlrpc php7.0-xml php7.0-curl mariadb-server mariadb-client php-cas ntp -y -qq
 cd /var/www/html
 wget --no-check-certificate -qq https://github.com/glpi-project/glpi/releases/download/$glpi_version/glpi-$glpi_version.tgz
-tar xvf glpi-$glpi_version.tgz
+tar xvf glpi-$glpi_version.tgz > /dev/null
 chown -R www-data:www-data /var/www/html/glpi/
 chmod -R 777 /var/www/html/glpi/
 touch /etc/apache2/sites-available/glpi.conf
@@ -34,7 +34,7 @@ echo "FLUSH PRIVILEGES;" | mysql -u root -p$rootpass
 echo "New MySQL database is successfully created"
 
 wget --no-check-certificate -qq https://github.com/fusioninventory/fusioninventory-for-glpi/releases/download/glpi9.3%2B1.3/fusioninventory-9.3+1.3.tar.bz2
-tar xjvf fusioninventory-9.3+1.3.tar.bz2
+tar xjvf fusioninventory-9.3+1.3.tar.bz2 > /dev/null
 mv fusioninventory/ /var/www/html/glpi/plugins/
 
 # wget --no-check-certificate https://forge.glpi-project.org/attachments/download/2179/GLPI-dashboard_plugin-0.8.2.tar.gz
